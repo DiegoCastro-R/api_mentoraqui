@@ -16,3 +16,4 @@ dotenv.config({ path });
 
 export const { PORT } = process.env;
 export const { HOST } = process.env;
+export const { MONGO_URI } = process.env;
