@@ -8,9 +8,7 @@ const app = express();
 const DateNow = Date().toString();
 
 
-app.get('/', (req,res) => {
- res.json({message: 'Ok'});
-});
+app.use(routes)
 mongoose.connect( `${MONGO_URI}` , { useNewUrlParser: true }).then(() => {console.log('🛰  MongoDB, Connected')}).catch((err) => {console.log('⛔ '+ err)})
 
 app.listen(PORT, () => {
