@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import UsersRouter from './users.routes'
+
 const routes = Router();
 import { APP_URL } from '../utils/config';
 routes.get('/', (req, res) => {

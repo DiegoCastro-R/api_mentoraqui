@@ -17,11 +17,16 @@
     "debug": "^4.2.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.11.12"
+    "express-favicon": "^2.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.12",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
     "@types/bcryptjs": "^2.4.2",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/serve-favicon": "^2.5.2",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
     "@typescript-eslint/parser": "^4.8.1",
     "eslint": "6.8.0",

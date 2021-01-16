@@ -1,9 +1,10 @@
 import { Router } from "express"
-import {getUsers, createUser} from '../controllers/Users'
+import {getUsers, CreateUser,AuthenticateUser} from '../controllers/Users'
 
 const UsersRouter = Router();
 
-UsersRouter.get('/', getUsers);
-UsersRouter.post('/', createUser);
+
+UsersRouter.post('/', CreateUser);
+UsersRouter.post('/auth', AuthenticateUser)
 
 export default UsersRouter;
