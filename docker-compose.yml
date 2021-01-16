@@ -1,0 +1,10 @@
+version: "3.7"
+services: 
+  server:
+    build: "./api"
+    container_name: node_container
+    volumes:
+      - ./api:/usr/app
+    ports: 
+      - "4000:4000"
+    restart: always
