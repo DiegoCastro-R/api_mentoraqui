@@ -1,7 +1,8 @@
+/* eslint-disable consistent-return */
+/* eslint-disable max-len */
 import { NextFunction, Request, Response } from 'express';
 import { verify } from 'jsonwebtoken';
 import { APP_SECRET } from '../utils/config';
-
 
 interface TokenPayload {
   iat: number;
@@ -9,15 +10,14 @@ interface TokenPayload {
   sub: string;
 }
 
-export default function ensureAuthenticated( request: Request, response: Response,next: NextFunction,): void {
+export default function ensureAuthenticated(request: Request, response: Response, next: NextFunction): void {
   const authHeader = request.headers.authorization;
 
-  if (!authHeader)
-    response.status(401).send('No JWT provided');
+  if (!authHeader) response.status(401).send('No JWT provided');
 
-  if(authHeader){
-  const [, token] = authHeader.split(' ');
-  const decoded = verify(token, `${APP_SECRET}`);
+  if (authHeader) {
+    const [, token] = authHeader.split(' ');
+    const decoded = verify(token, `${APP_SECRET}`);
 
     const { sub } = decoded as TokenPayload;
 
@@ -26,7 +26,6 @@ export default function ensureAuthenticated( request: Request, response: Respons
     };
     return next();
   }
-  else {
-    response.status(401).send('JWT Token Invalid');
-  }
+
+  response.status(401).send('JWT Token Invalid');
 }

@@ -18,6 +18,7 @@ COPY . .
 
 RUN npm run build
 COPY .env ./dist/
+COPY ./public/ ./dist/
 COPY .env.development ./dist/
 COPY .env.test ./dist/
 WORKDIR ./dist/

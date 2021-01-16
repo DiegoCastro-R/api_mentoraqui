@@ -1,5 +1,6 @@
-import {IUser} from '../types/User'
-import { model, Schema } from "mongoose"
+import { model, Schema } from 'mongoose'
+import { IUser } from '../types/User'
+
 const UserSchema = new Schema({
   fullName: {
     type: String,
@@ -18,7 +19,7 @@ const UserSchema = new Schema({
   userCategory: {
     type: String,
     required: true,
-  }
-}, {timestamps: true});
+  },
+}, { timestamps: true });
 
 export default model<IUser>('User', UserSchema);
