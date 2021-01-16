@@ -38,28 +38,28 @@ const createUser = async (req: Request, res: Response): Promise<void> => {
   }
 }
 
-const AuthUser = async (req: Request, res: Response): Promise<void> => {
-  try {
-    const { fullName, email, password, phone } = req.body;
-    const isUsedAlreadyCreated: IUser[] = await User.findOne({ email })
-    if (isUsedAlreadyCreated){
-      res.status(403).json({ message: "Email is already in use"})
-    }
-    else {
-    const user: IUser = new User({ fullName, email, password, phone })
-    const newUser: IUser = await user.save()
+// const AuthUser = async (req: Request, res: Response): Promise<void> => {
+//   try {
+//     const { fullName, email, password, phone } = req.body;
+//     const isUsedAlreadyCreated: IUser[] = await User.findOne({ email })
+//     if (isUsedAlreadyCreated){
+//       res.status(403).json({ message: "Email is already in use"})
+//     }
+//     else {
+//     const user: IUser = new User({ fullName, email, password, phone })
+//     const newUser: IUser = await user.save()
 
-    const createdUser = {
-      fullName: newUser.fullName,
-      email: newUser.email,
-      phone: newUser.phone,
-    }
+//     const createdUser = {
+//       fullName: newUser.fullName,
+//       email: newUser.email,
+//       phone: newUser.phone,
+//     }
 
-    res.status(201).json({ message: "User successfuly created", user: createdUser })
-  }
-  } catch (error) {
-    throw error
-  }
-}
+//     res.status(201).json({ message: "User successfuly created", user: createdUser })
+//   }
+//   } catch (error) {
+//     throw error
+//   }
+// }
 
 export { getUsers, createUser }
