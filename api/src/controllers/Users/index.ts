@@ -16,7 +16,7 @@ const getUsers = async (req: Request, res: Response): Promise<void> => {
 const createUser = async (req: Request, res: Response): Promise<void> => {
   try {
     const { fullName, email, password, phone, userCategory } = req.body;
-    const isUsedAlreadyCreated: IUser[] = await User.findOne({ email })
+    const isUsedAlreadyCreated = await User.findOne({ email })
     if (isUsedAlreadyCreated){
       res.status(301).json({ message: "Email is already in use"})
     }
