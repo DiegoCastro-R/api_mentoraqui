@@ -16,10 +16,8 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-RUN npm run build:cp
 RUN npm run build
 COPY .env ./dist/
-COPY ./src/public/ ./dist/public/
 COPY .env.development ./dist/
 COPY .env.test ./dist/
 WORKDIR ./dist/
